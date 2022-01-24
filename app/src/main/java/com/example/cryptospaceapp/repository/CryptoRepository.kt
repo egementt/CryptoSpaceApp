@@ -12,10 +12,10 @@ class CryptoRepository @Inject constructor(private val api: CryptoService) {
 
     private val response : MutableLiveData<Response<ArrayList<CryptoModelItem>>> =  MutableLiveData()
 
-    suspend fun getAllCurrencies(): MutableLiveData<Response<ArrayList<CryptoModelItem>>> {
+    suspend fun getAllCurrencies( page: Int = 1): MutableLiveData<Response<ArrayList<CryptoModelItem>>> {
         try {
             response.value = Response.Loading()
-            val data = api.listCurrencies()
+            val data = api.listCurrencies(page = page)
             if (!data.isEmpty()){
                 response.value = Response.Success(data)
                 if (response.value != null){

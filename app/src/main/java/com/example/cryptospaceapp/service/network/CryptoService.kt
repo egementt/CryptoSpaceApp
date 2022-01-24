@@ -11,8 +11,8 @@ interface CryptoService {
     @GET("coins/markets")
     suspend fun listCurrencies(
         @Query("vs_currency") vs_currency: String? = "usd",
-        @Query("order") order: String? = "market_cap_desc",
-        @Query("per_page") per_page: Int?= 20,
+        @Query("order") order: String? = "gecko_desc",
+        @Query("per_page") per_page: Int?= 25,
         @Query("page") page: Int? = 1
     ): CryptoModel
 }

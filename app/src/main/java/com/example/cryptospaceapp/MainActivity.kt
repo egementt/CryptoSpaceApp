@@ -22,14 +22,15 @@ import androidx.navigation.navArgument
 import coil.annotation.ExperimentalCoilApi
 import com.example.cryptospaceapp.navigation.BottomNavigationBar
 import com.example.cryptospaceapp.ui.theme.CryptoSpaceAppTheme
-import com.example.cryptospaceapp.view.FavoritesScreen
 import com.example.cryptospaceapp.view.screen.HomeScreen
 import com.example.cryptospaceapp.view.screen.NewsScreen
+import com.example.cryptospaceapp.view.screen.SearchScreen
 import com.example.cryptospaceapp.view.screen.WebViewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @ExperimentalCoilApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -90,8 +91,8 @@ fun NavHostContainer(
             composable("news") {
                 NewsScreen(navHostController = navController)
             }
-            composable("favorites") {
-                FavoritesScreen()
+            composable("search") {
+                SearchScreen()
             }
             composable(
                 "webview/{webpage}",
